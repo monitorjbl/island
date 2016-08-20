@@ -79,6 +79,15 @@ public class Island implements AutoCloseable {
     running = false;
     process.destroy();
     process.exitValue();
+
+    try {
+      File parentPath = new File(queueBasePath + "/parent");
+      File childPath = new File(queueBasePath + "/child");
+      FileUtils.deleteDirectory(parentPath);
+      FileUtils.deleteDirectory(childPath);
+    } catch(IOException e) {
+      log.error("Could not clean up queue paths", e);
+    }
   }
 
   public void ping() {

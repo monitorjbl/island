@@ -4,7 +4,7 @@ Helps to isolate particular parts of your codebase at runtime by starting them u
 
 Example:
 
-java```
+```java
   // Common interface to allow for IPC
   public interface TestFace {
     String doSomething();
